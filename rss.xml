@@ -6,8 +6,8 @@
     <link>https://superdeeep.github.io/</link>
     <description>嗨呀嗨呀，这里是我的小站</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 22 Jul 2022 08:22:53 GMT</pubDate>
-    <lastBuildDate>Fri, 22 Jul 2022 08:22:53 GMT</lastBuildDate>
+    <pubDate>Fri, 05 Aug 2022 15:27:54 GMT</pubDate>
+    <lastBuildDate>Fri, 05 Aug 2022 15:27:54 GMT</lastBuildDate>
     <generator>@mr-hope/vuepress-plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -2649,41 +2649,22 @@ dpkg -l <span>|</span><span>grep</span> ^rc<span>|</span><span>awk</span> <span>
 <div><pre><code>dpkg -r     <span>#移除一个已安装的包。</span>
 dpkg -P    <span>#完全清除一个已安装的包。和 remove 不同的是，remove 只是删掉数据和可执行文件，purge 另外还删除所有的配制文件。</span>
 </code></pre>
-<div><span>1</span><br><span>2</span><br></div></div><h2 id="增加grub引导界面选项"> 增加grub引导界面选项</h2>
-<p>增加了重启和关机</p>
-<p>找到<code>/etc/grub.d</code></p>
-<p>编辑<code>40_custom</code></p>
-<div><pre><code><span>#!/bin/sh</span>
-<span>#exec tail -n +3 $0 #attention!</span>
-<span># This file provides an easy way to add custom menu entries.  Simply type the</span>
-<span># menu entries you want to add after this comment.  Be careful not to change</span>
-<span># the 'exec tail' line above.</span>
-
-<span>cat</span> <span>&lt;&lt;</span><span>EOF
-menuentry "Reboot the computer"{
-	reboot
-}
-menuentry "Poweroff the computer"{
-	halt
-}
-EOF</span>
-</code></pre>
-<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><h2 id="安装yersinia"> 安装yersinia</h2>
+<div><span>1</span><br><span>2</span><br></div></div><h2 id="安装yersinia"> 安装yersinia</h2>
 <p><code>apt-get install yersinia</code></p>
 <h2 id="安装屏幕键盘"> 安装屏幕键盘</h2>
 <p><code>apt-get install onboard</code></p>
 <p>配置登录时启动：</p>
-<p>打开/etc/lightdm/lightdm-gtk-greeter.conf
+<p>打开<code>/etc/lightdm/lightdm-gtk-greeter.conf</code>
 添加
-keyboard=onboard</p>
+<code>keyboard=onboard</code></p>
 <h2 id="安装办公软件"> 安装办公软件</h2>
 <h3 id="wps"> WPS</h3>
 <p>下载 wps for linux</p>
 <p>安装 <code>dpkg -i XXXX.deb</code></p>
 <p>安装缺少的字体</p>
 <p>字体下载地址：</p>
-<p>https://github.com/pengphei/wps-font-symbols/archive/master.zip</p>
-<p>打开 /usr/share/fonts/</p>
+<p><a href="https://github.com/pengphei/wps-font-symbols/archive/master.zip" target="_blank" rel="noopener noreferrer">https://github.com/pengphei/wps-font-symbols/archive/master.zip<i>Content not supported</i></a></p>
+<p>打开 <code>/usr/share/fonts/</code></p>
 <p>新建msttf文件夹</p>
 <p><code>mkdir -p msttf</code></p>
 <p>把字体丢进去就好</p>
@@ -2715,60 +2696,101 @@ keyboard=onboard</p>
 <p><code>~/.nutstore/dist/bin/install_core.sh</code>
 官网就教到这，但是你就是打不开它</p>
 <p>但这不能阻止我们</p>
-<p>接着找到 ~/.nutstore/dist/bin/nutstore-pydaemon.py</p>
+<p>接着找到 <code>~/.nutstore/dist/bin/nutstore-pydaemon.py</code></p>
 <p>把python3改成python就可以启动了</p>
 <p>ps：当你输完帐号密码登录的时候，你会发现他在功能预览那里卡住了。这是不要着急，拿着鼠标一顿狂点，或者直接把窗口关了，随你怎么乱搞，之后它自己就会好（就好还是不要结束进程）。</p>
 <h2 id="安装vlc"> 安装vlc</h2>
 <p><code>apt install vlc</code></p>
 <h2 id="修改kali登录画面和启动画面"> 修改kali登录画面和启动画面</h2>
-<p>登录界面背景路径：</br>
-/usr/share/backgrounds/kali/</br></p>
-<ul>
-<li>ps:新的kali已变为
-/usr/share/backgrounds/kali/
-/etc/alternatives/desktop-theme/</li>
-</ul>
-<p>修改或者替换</br>
-kali-light-strips-4x3.png</br>
-kali-light-strips-16x9.png</br>
-kali-light-strips-16x10.png</br>
-这几个文件</br></p>
-<p>grub2加载启动系统画面路径：</br>
-/usr/share/images/desktop-base/</br>
-创建符号链接来替换原有的desktop-grub.png的符号链接，注意！两者都是符号链接</br></p>
-<p>grub2引导画面路径：</br>
-/boot/grub/themes/kali</br>
-修改或者替换</br>
-background.png</br>
-grub-4x3.png</br>
-grub-16x9.png</br></p>
-<p>background.png就是grub-16x9.png可以直接复制，没问题的</p>
-<p>最后执行update-grub即可</br></p>
-<p>本人测试发现( •̀ ω •́ )✧。如果使用kali系统内自带的图片当启动画面或者锁屏壁纸的话，可以直接复制替换，不需要多加修改。</p>
-<p>当然如果你使用自己的图片，建议与kali自带的图片参数保持一致。</p>
+<p>登录界面背景路径：</p>
+<p><code>/usr/share/backgrounds/kali/</code></p>
+<p>修改或者替换这些文件</p>
+<p>名字不一定相同每次kali更新都会变化，看着图片替换就行。</p>
+<p><code>kali-light-strips-4x3.png</code></p>
+<p><code>kali-light-strips-16x9.png</code></p>
+<p><code>kali-light-strips-16x10.png</code></p>
+<p>grub2加载启动系统画面路径：</p>
+<p><code>/usr/share/images/desktop-base/</code></p>
+<p>创建符号链接来替换原有的desktop-grub.png的符号链接，注意！两者都是符号链接</p>
+<p>你也可以直接改源文件，但是文件很多，不好找</p>
+<p>grub2引导画面路径：</p>
+<p><code>/boot/grub/themes/kali</code></p>
+<p>修改或者替换</p>
+<p><code>background.png</code>（目前已删除）</p>
+<p><code>grub-4x3.png</code></p>
+<p><code>grub-16x9.png</code></p>
+<p><code>theme.txt</code>也可按需要修改</p>
+<p>最后执行<code>update-grub</code>命令即可</p>
+<p>如果你使用自己的图片，建议与kali自带的图片参数保持一致。</p>
+<p>增加启动引导项：</p>
+<p>文件目录：<code>/etc/grub.d/40_custom</code></p>
+<p>如果是最新kali直接在文件里面往下添加</p>
+<div><pre><code>menuentry <span>"Reboot the computer"</span><span>{</span>
+	<span>reboot</span>
+<span>}</span>
+menuentry <span>"Poweroff the computer"</span><span>{</span>
+	<span>halt</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><p>就好，可以在引导界面增加重启和关机选项</p>
+<p>之前版本：</p>
+<p>文件目录：<code>/etc/grub.d/40_custom</code></p>
+<div><pre><code><span>#!/bin/sh</span>
+<span>#exec tail -n +3 $0 #attention!</span>
+<span># This file provides an easy way to add custom menu entries.  Simply type the</span>
+<span># menu entries you want to add after this comment.  Be careful not to change</span>
+<span># the 'exec tail' line above.</span>
+
+<span>cat</span> <span>&lt;&lt;</span><span>EOF
+menuentry "Reboot the computer"{
+	reboot
+}
+menuentry "Poweroff the computer"{
+	halt
+}
+EOF</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><p>登录界面主题：</p>
+<p>文件目录：<code>/etc/lightdm/lightdm-gtk-greeter.conf</code></p>
+<div><pre><code><span>[</span>greeter<span>]</span>
+background <span>=</span> /usr/share/desktop-base/kali-theme/login/background
+theme-name <span>=</span> Kali-Dark <span>#这里是主题</span>
+font-name <span>=</span> Cantarell <span>11</span>
+icon-theme-name <span>=</span> Flat-Remix-Blue-dark <span>#这里是输入用户名的</span>
+xft-antialias <span>=</span> <span>true</span>
+xft-dpi <span>=</span> <span>96</span>
+xft-hintstyle <span>=</span> slight
+xft-rgba <span>=</span> rgb
+indicators <span>=</span> ~host<span>;</span>~spacer<span>;</span>~session<span>;</span>~layout<span>;</span>~a11y<span>;</span>~clock<span>;</span>~power<span>;</span>
+clock-format <span>=</span> %d %b, %H:%M
+screensaver-timeout <span>=</span> <span>60</span>
+default-user-image <span>=</span> <span>#emblem-kali</span>
+keyboard <span>=</span> onboard
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><p>最新版kali已添加onboard</p>
 <h2 id="安装gnome桌面-不建议安装"> 安装GNOME桌面（不建议安装）</h2>
 <p>如果折腾后想换回原来的桌面，请按照下面的方法安装：</p>
-<p>apt-get install gnome-core kali-defaults kali-root-login desktop-base</p>
+<p><code>apt-get install gnome-core kali-defaults kali-root-login desktop-base</code></p>
 <p>安装各种东西</p>
-<p>apt install gnome-shell-extension-desktop-icons #显示桌面图标</p>
-<p>apt install gnome-shell-extension-Clipboard Indicator #剪贴板</p>
-<p>apt-get install gnome-tweak-tool #插件扩展</p>
+<p><code>apt install gnome-shell-extension-desktop-icons</code> #显示桌面图标</p>
+<p><code>apt install gnome-shell-extension-Clipboard Indicator</code> #剪贴板</p>
+<p><code>apt-get install gnome-tweak-tool</code> #插件扩展</p>
 <p>在火狐里安装相关的插件后，就可以在浏览器里直接对桌面安装插件了</p>
-<p>插件地址 https://extensions.gnome.org</p>
+<p>插件地址 <a href="https://extensions.gnome.org" target="_blank" rel="noopener noreferrer">https://extensions.gnome.org<i>Content not supported</i></a></p>
 <p>Extensions</p>
 <p>Dash to Panel （windows风格）</p>
 <p>Dash to Dock （mac风格）</p>
 <p>卸载：</p>
-<p>apt-get remove gnome-core</p>
+<p><code>apt-get remove gnome-core</code></p>
 <h3 id="kali安装中文字体"> kali安装中文字体</h3>
 <p>如果你的onboard显示不全的话就需要它</p>
 <div><pre><code><span>sudo</span> <span>apt-get</span> <span>install</span> ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 </code></pre>
 <div><span>1</span><br></div></div><p>安装完之后重启它</p>
 <h2 id="安装缺少的libappindicator3-1"> 安装缺少的libappindicator3-1</h2>
-<p>http://ftp.cn.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-2_amd64.deb</p>
+<p><a href="http://ftp.cn.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-2_amd64.deb" target="_blank" rel="noopener noreferrer">http://ftp.cn.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-2_amd64.deb<i>Content not supported</i></a></p>
 <p>libappindicator3-1:</p>
-<p>http://mirrors.ustc.edu.cn/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-3.1_amd64.deb</p>
+<p><a href="http://mirrors.ustc.edu.cn/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-3.1_amd64.deb" target="_blank" rel="noopener noreferrer">http://mirrors.ustc.edu.cn/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-3.1_amd64.deb<i>Content not supported</i></a></p>
 <p>用dpkg安装就好</p>
 ]]></content:encoded>
     </item>
@@ -2896,12 +2918,97 @@ grub rescue<span>></span> <span>set</span> <span>prefix</span><span>=</span><spa
       <enclosure url="https://cdn.jsdelivr.net/gh/Superdeeep/photo/IMG_20210211_232916_compress_64.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>开启小米路由器硬盘访问</title>
-      <link>https://superdeeep.github.io/20210613_02-%E5%BC%80%E5%90%AF%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E4%BA%91%E7%9B%98/</link>
-      <guid>https://superdeeep.github.io/20210613_02-%E5%BC%80%E5%90%AF%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E4%BA%91%E7%9B%98/</guid>
-      <source url="https://superdeeep.github.io/rss.xml">开启小米路由器硬盘访问</source>
-      <pubDate>Sun, 13 Jun 2021 16:45:00 GMT</pubDate>
-      <content:encoded><![CDATA[<p>小米路由R1D打开硬盘访问终极方案</p>
+      <title>小米r1d路由器折腾笔记</title>
+      <link>https://superdeeep.github.io/20220802_02-%E5%B0%8F%E7%B1%B3r1d%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</link>
+      <guid>https://superdeeep.github.io/20220802_02-%E5%B0%8F%E7%B1%B3r1d%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</guid>
+      <source url="https://superdeeep.github.io/rss.xml">小米r1d路由器折腾笔记</source>
+      <description>目的：让r1d成为一个小nas
+环境：路由器AC一体机+AP
+1、需要将将小米刷成tomato无盘运行系统
+</description>
+      <pubDate>Tue, 02 Aug 2022 16:45:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p>目的：让r1d成为一个小nas</p>
+<p>环境：路由器AC一体机+AP</p>
+<p>1、需要将将小米刷成tomato无盘运行系统</p>
+
+<p>如果只是当个nas用可以用官方的系统即可，当然你愿意像我一样折腾也可以😂</p>
+<p>那么先开始折腾！</p>
+<p>恩山无线已经有教程里，这里先复制一份</p>
+<p>目标系统tomato！</p>
+<p>Tomato的主要特点包括易于设置和高效的QoS，相对DD-WRT更易用的界面以及极少需要在保存设置时重启。</p>
+<p>近年俄罗斯大神对tomato系统进行了修改，使同样用BCM4709芯片的小米路由器可以用tomato操作系统了。虽然笔者力求用正确的方法引导大家玩机，但毕竟刷机有风险，操作需谨慎，责任自承担。稳妥一些就最好准备上编程器吧。下面跟我来刷机！</p>
+<p>第一步，准备工作。</p>
+<p>1.小米路由器R1D一台。</p>
+<p>2.打开路由器SSH。<a href="http://d.miwifi.com/rom/ssh" target="_blank" rel="noopener noreferrer">http://d.miwifi.com/rom/ssh<i>Content not supported</i></a></p>
+<p>3.下载tomato操作系统，下载带有R1D标识的就可以，一般13M左右，130以后版本的都有简体中文选择。  <a href="https://bitbucket.org/tsynik/tomato-arm/downloads" target="_blank" rel="noopener noreferrer">https://bitbucket.org/tsynik/tomato-arm/downloads<i>Content not supported</i></a></p>
+<p>4.下载刷机工具包 <a href="https://wwz.lanzout.com/iVFIM08rrxmd" target="_blank" rel="noopener noreferrer">https://wwz.lanzout.com/iVFIM08rrxmd<i>Content not supported</i></a> 密码:bcfk</p>
+<p>第二步，前期工作。</p>
+<p>1.由于小米路由器引导和tomato不同，需要修改cfe.bin并且稍后更换。两步走，一是打开小米路由器管理后台，记下你小米路由器的MAC 。</p>
+<p>二是用工具包的cfe编辑器，打开cfe_stock.bin文件，按下面截图提示修改并且保存cfe.bin文件备用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/CFE43f344a26350eb190bc296eb6b95997.png" alt=""></p>
+<p>2.把修改后的 cef.bin文件以及工具包里的backup.sh、flash-cfe.sh 共 3 個文件放到U盘中，插入小米路由器 USB 待用。</p>
+<p>第三步，刷机开始。</p>
+<p>1.用Xshell 4或者putty.exe之类打开SSH操作。进入U盘 。</p>
+<p><code>cd /extdisks/sdb1</code>（这个U盘位置各人可能不同，自己修正）    回车。</p>
+<p>2.首先进行小米路由器备份。这一步非常重要。因为我们刷机第三方系统，今后要恢复原系统要靠这些备份。</p>
+<p><code>./backup.sh</code>    回车</p>
+<p>约半分钟左右，备份完毕。</p>
+<p>3.更换cfe.bin。</p>
+<p><code>./flash-cfe.sh</code>   回车</p>
+<p>几秒钟后cfe，更换完成，拿下U盘，备份妥善保存。</p>
+<p>4.确认刷机后门打开。</p>
+<p><code>nvram set boot_wait=on &amp;&amp; nvram set wait_time=10 &amp;&amp; nvram commit &amp;&amp; nvram show |grep wait</code>    回车</p>
+<p>屏幕有</p>
+<div><pre><code><span>boot_wait</span><span>=</span>on      
+
+<span>wait_time</span><span>=</span><span>10</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div><p>的显示为成功。</p>
+<p>5.修改电脑本地IP设置。</p>
+<p>其一，进入本地网络连接，点击网络属性</p>
+<p>其二，下图选择internet协议版本4，点击属性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/ip44044f193176eb27a69f3710580a8df7.png" alt=""></p>
+<p>其三，下图指定IP地址，按确定。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/ipv4set062b58671aff43389f5ce5fda31147c.png" alt=""></p>
+<p>提醒：刷机完毕记得修改回原来的‘自动获取IP地址’，否则电脑不能上网的哦。</p>
+<p>6.网页打开192.168.1.1 ，小米路由器lan口用网线和电脑连接，路由器拔下电源重启，指示灯转黄灯，稍等一会即会有以下显示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/cfeupload202827fv743gkkig0jpwk9.png" alt=""></p>
+<p>按选择文件找到你下载的tomato固件，再按上传 （Upload）注意左下角有正在上传文件的百分比</p>
+<p>ps:我就卡在这一步，死活上传不了，最后编程器都上了，最终还是刷坏了，问题是无法擦除芯片。</p>
+<p>上传很快，一般几十秒可以，成功即有下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/recive202925y4nx55xq3zx2qd2u.png" alt=""></p>
+<p>此处是固件安装和重启，需要时间较长，等3-5分钟或者更长时间，到黄灯转蓝灯即成功。这里如果重启不能显示cfe刷机服务标志，又或者上传不能开始，上传时间过长（超过1分钟），上传中途中断等，不用灰心。黄灯不可怕，可能是缓存问题，只需要拔下电源，长按reset键再插电30秒以上。重新操作直到黄灯转蓝灯，最后在网页输入192.168.1.1，会弹出要求的登录名和密码框框，同样都输入admin即可进入tomato设置。</p>
+<p>刷机就完成了！</p>
+<p>ps:</p>
+<p>我最终还是淘了个二手，别人已经刷好的😫。</p>
+<p>没错，这玩意需要运气！😭</p>
+<p>既然已经有了台现成品，那就让它成为家庭nas吧！</p>
+<p>这里的设置和操作是针对已经有主路由器的用户，如果你想把r1d当作你的主路由无需进行这些操作，直接用就好。</p>
+<p>1、配置wan与lan，让r1d有一个内网ip可访问和管理。</p>
+<p>wan配置如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/wan96f993b0a82cbc66ab23fe8f73a61fc.png" alt=""></p>
+<p>lan配置如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/lan3d9e6b77c7aaa7df92ab39ade41ce27.png" alt=""></p>
+<p>2、再进入tomato管理页面的USB&amp;NAS的文件共享</p>
+<p>客户端代码页选择936</p>
+<p>共享列表里面记得添加你的硬盘路径，一般来说硬盘会自动挂载到/tmp/mnt/sda1</p>
+<p>你也可以去USB支持里面去查看已连接的设备，会显示你的硬盘的挂载目录</p>
+<p>还有媒体服务器啥的都可以打开🤩</p>
+<p>ps：这里路径直接写<code>/sda1</code></p>
+<p>记得跟数据有关的都填你的硬盘路径，不然可就挤爆闪存了😂</p>
+<p>3、打开ftp服务器（它在web服务选项里面）</p>
+<p>目录示例：</p>
+<p>目录</p>
+<p>匿名根目录 *   /mnt/sda1 (匿名连接)</p>
+<p>公共根目录 *   /mnt/sda1 (通过身份验证的用户访问,如果没有指定用户)</p>
+<p>私有根目录 **  /mnt/sda1 (为认证用户以私有模式访问)</p>
+<p>用户帐户建议添加，密码简单点没太大问题（只要你不在家里开服务器😂）</p>
+<p>4、4被我吃掉了😋</p>
+<p>5、电影体验</p>
+<p>如果你直接挂载r1d的硬盘到本地的话，1-3GB左右的电影基本能够看，但是由于smb协议，网络性能等等问题会出现卡顿的问题，看一部电影居然能卡2次</p>
+<p>建议使用potplayer里面的远程连接使用ftp进行观看电影，实测下来，观看10GB以下电影不会出现问题，10GB以上可能会有问题，跟电脑解码性能也有关系。</p>
+<p>小米路由R1D官版固件打开硬盘访问终极方案</p>
+<p>记得r1d要是主路由。</p>
 <p>啥也不说了😂</p>
 <p>上图😁</p>
 <h3 id="打开samba"> 打开samba</h3>
@@ -2926,7 +3033,7 @@ grub rescue<span>></span> <span>set</span> <span>prefix</span><span>=</span><spa
 <p><img src="https://cdn.jsdelivr.net/gh/Daoep/photo/miwifi5.png" alt=""></p>
 </div>
 ]]></content:encoded>
-      <enclosure url="https://cdn.jsdelivr.net/gh/Superdeeep/photo/miwifi1.jpg" type="image/jpeg"/>
+      <enclosure url="https://cdn.jsdelivr.net/gh/Superdeeep/photo/CFE43f344a26350eb190bc296eb6b95997.png" type="image/png"/>
     </item>
     <item>
       <title>获取中兴F412光猫超级管理密码</title>
@@ -3341,6 +3448,136 @@ icon_shortcut_mask.png</br></p>
 </div>
 ]]></content:encoded>
       <enclosure url="https://cdn.jsdelivr.net/gh/Superdeeep/photo/360pic_01.jpg" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>华为P9刷机指南</title>
+      <link>https://superdeeep.github.io/20220803_12-%E5%8D%8E%E4%B8%BAp9%E5%88%B7%E6%9C%BA%E6%8C%87%E5%8D%97/</link>
+      <guid>https://superdeeep.github.io/20220803_12-%E5%8D%8E%E4%B8%BAp9%E5%88%B7%E6%9C%BA%E6%8C%87%E5%8D%97/</guid>
+      <source url="https://superdeeep.github.io/rss.xml">华为P9刷机指南</source>
+      <pubDate>Wed, 03 Aug 2022 08:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>感谢酷安老哥SakuraQuck提供的图文教程。</p>
+<p>这里我就搬运和翻新一下。</p>
+<p>关于华为各种模式：</p>
+<p><font color=gray size=2>内容知识来自某贼</font></br></p>
+<p>Recovery：不连接电脑，关机状态长按电源键和音量加，出现logo松开电源键继续按住音量加，直到进入。</p>
+<p>eRecovery：关机状态插线，长按电源键和音量加。</p>
+<p>Fastboot：关机状态插线，长按电源键和音量减。</p>
+<p>关于Recovery和eRecovery：</p>
+<p>Recovery和eRecovery是有区别的。Recovery就是我们熟知的那个Recovery，而eRecovery是独立于Recovery的另一个分区。二者功能不同，在Recovery里我们可以做恢复出厂，清除cache等本地操作，而在eRecovery里可以连接WiFi下载适用于你的手机的系统包并自动安装恢复。刷TWRP只是替换掉了Recovery，eRecovery仍然保留。</p>
+<p>升级模式（所谓三键强刷）：关机状态下，长按电源键，音量加和音量减。如果你的系统包在手机存储里，则不需要插线直接按，如果你想要用电脑工具辅助，则需要插线。</p>
+<p>注意：如果你刷了第三方TWRP，可能会无法进入5%的升级模式。</p>
+<p>刷第三方包：</p>
+<p>一，如何降级（理论上如果有相应的刷机包都是可以通过以下步骤经行降级）</p>
+<p>这里教大家如何降级到540的系统，上述两款第三方系统都需要降级到540后刷入，不然会卡第一屏</p>
+<p>第一步：</p>
+<p>下载刷机包和降级所需的工具</p>
+<p>现在最新系统是550如果是最新版本的系统的话需要降级到540</p>
+<p>工具：</p>
+<p><a href="https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/EVA-AL00_8.0.0.540(C00)_Firmware_8.0.0_r1_EMUI8.0_05014GSF.zip" target="_blank" rel="noopener noreferrer">https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/EVA-AL00_8.0.0.540(C00)_Firmware_8.0.0_r1_EMUI8.0_05014GSF.zip<i>Content not supported</i></a></p>
+<p>降级包：</p>
+<p><a href="https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/EVA-AL00_8.0.0.540(C00)_Firmware_8.0.0_r1_EMUI8.0_05014GSF.zip" target="_blank" rel="noopener noreferrer">https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/EVA-AL00_8.0.0.540(C00)_Firmware_8.0.0_r1_EMUI8.0_05014GSF.zip<i>Content not supported</i></a></p>
+<p>Recovery：</p>
+<p><a href="https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/img/huawei-eva-al00-em8_0-twrp3.2.1-7to-recovery-8.5.28.img" target="_blank" rel="noopener noreferrer">https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/img/huawei-eva-al00-em8_0-twrp3.2.1-7to-recovery-8.5.28.img<i>Content not supported</i></a></p>
+<p>系统包：</p>
+<p><a href="https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/img/lineage-16.0-20201019-emui8-gapps.img" target="_blank" rel="noopener noreferrer">https://ondrive.vercel.app/api/raw/?path=/HUAWEI/P9_FLASH/img/lineage-16.0-20201019-emui8-gapps.img<i>Content not supported</i></a></p>
+<p>第二步：</p>
+<p>安装驱动和线刷工具，解压好zip文件</p>
+<p>第三步：</p>
+<p>进入升级模式</p>
+<p>1， 在拨号界面输入*#<em>#2846579#</em>#*进入工厂模式-后台设置-USB端口设置选择生产模式</p>
+<p>2， 把手机关机，按住电源键+音量加+音量减 三个键同时按住进入升级模式（进入一个正在安装升级包5%的界面）</p>
+<p>3， 在电脑上右击此电脑-管理-设备管理器-端口，查看是否显示如下端口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/p9usbcom.jpg" alt=""></p>
+<p>图不是我截屏的嘿嘿，你看出来了嘛？(●·∀·●)</p>
+<p>如显示这样子则为正常</p>
+<p>第四步：</p>
+<p>准备好刷机文件</p>
+<p>打开zip文件会得到很多文件，我们按照如下目录结构找到大包和小包</p>
+<p>注意：请核对好手机型号，再打开相应文件夹，解压文件夹里的压缩包</p>
+<p>目标机型以EVA-AL00为例，整体文件目录如下：</p>
+<div><pre><code>EVA-AL00_8.0.0.540(C00)_Firmware_8.0.0_r1_EMUI8.0_05014GSF.zip
+|
+|--Software
+    |
+    |--EVA-TL00_cmcc_cn
+    |--EVA-DL00_unicom_cn
+    |--EVA-CL00_telecom_cn
+    |--EVA-AL10_all_cn
+    |--EVA-AL00_all_cn
+        |
+        |--update_sd_EVA-AL00_all_cn.zip
+            |
+            |--META-INF
+            |--update_EVA-AL00_all_cn.app &lt;----这个是小包！
+            |--SOFTWARE_VER_LIST.mbn
+            |--SD_update.tag
+            |--full_mainpkg.tag
+    |--update_sd.zip
+        |
+        |--META-INF
+        |--UPDATE.APP &lt;----这个是大包！
+        |--SOFTWARE_VER_LIST.mbn
+        |--SD_update.tag
+        |--full_mainpkg.tag
+|--ReleaseDoc
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br></div></div><p>以cn.app结尾的的文件是小包等会要第二个刷入</p>
+<p>以APP为后缀的文件这个是大包等会要第一个刷入</p>
+<p>第五步:</p>
+<p>打开刷机工具刷入刚刚我们找到的大包和小包</p>
+<p>打开刷机工具时会报错，这个不用担心，是正常的（毕竟是crack版o(<em>￣▽￣</em>)o）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/lieren1.png" alt=""></p>
+<p>点开这里，先刷入我们的大包，刷完之后会提示我么重启，请点击否，不要它重启，再刷入小包，之后提示我们重启时再重启</p>
+<p>到这里我们就降级成功了！</p>
+<p>至于进度条只有77%不用管他，进度条他就图一乐~</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/huaweip977wenti.jpg" alt=""></p>
+<p>你看我的不也是77%</p>
+<p>注意事项：</p>
+<p>1， 刷完之后如有卡第二屏的情况就进入官方rec里恢复出厂设置</p>
+<p>2， 第三部如有端口缺少的建议多试一下重装驱动和重启电脑</p>
+<p>二，刷入第三方系统和Recovery</p>
+<p>记得下载好文件</p>
+<p>第一步：</p>
+<p>解bl锁</p>
+<p>自行淘宝解决</p>
+<p>或者φ(*￣0￣)</p>
+<p>你可以试一试开源的工具potatoNv</p>
+<p>原理是直接改解锁码</p>
+<p>支持的机型：</p>
+<p>Kirin 620</br>
+Kirin 650</br>
+Kirin 658</br>
+Kirin 659</br>
+Kirin 925</br>
+Kirin 935</br>
+Kirin 950</br>
+Kirin 960</br></p>
+<p>potatoNv地址：</p>
+<p><a href="https://github.com/mashed-potatoes/PotatoNV/releases/tag/v2.2.1_2022.03" target="_blank" rel="noopener noreferrer">https://github.com/mashed-potatoes/PotatoNV/releases/tag/v2.2.1_2022.03<i>Content not supported</i></a></p>
+<p>某贼的教程：</p>
+<p><a href="https://www.coolapk.com/feed/28963942?shareKey=OTc0MDY4YzkxYmQ2NjEyZjY1OGE~&amp;shareUid=3463951&amp;shareFrom=com.coolapk.market_11.4-beta1" target="_blank" rel="noopener noreferrer">https://www.coolapk.com/feed/28963942?shareKey=OTc0MDY4YzkxYmQ2NjEyZjY1OGE~&amp;shareUid=3463951&amp;shareFrom=com.coolapk.market_11.4-beta1<i>Content not supported</i></a></p>
+<p>第二步：</p>
+<p>进入fastboot模式刷入Rec（进入fastboot的方法：手机接上电脑重启按住音量减键）记得插数据线噢</p>
+<p>打开cmd输入fastboot flash recovery +上面第一个文件的第一个的路径</p>
+<p>（这里需要安装adb环境，不会的自行百度）</p>
+<p>等待刷入即可一般很快的</p>
+<p>第三步：</p>
+<p>进入REC点击清除-格式化data分区-yes做完这一步返回主菜单，点击高级-移除data分区强制加密</p>
+<p>第四步重启进入系统将查找手机关掉</p>
+<p>第五步再次进入fastboot模式打开电脑cmd输入fastboot flash system +lineage系统镜像。刷完重启进入REC打开文件删除data里除了media和property的文件（不要直接格式化不然会没基带）重启进入系统即可</p>
+<p>对！手动一个一个删除</p>
+<p>这样保险一点~~~</p>
+<p>同样的方法也可以刷入havoc</p>
+<p>三、回官</p>
+<p>这个直接用华为手机助手里的系统修复就可以了，但是每次刷完下次还想刷的时候就得重新下载rom这就非常难受，这里教大家不用每次都下载的方法</p>
+<p>在路径<code>C:\Users\你的用户名\Documents\HiSuite\</code>有一个叫ROM的文件夹每次下的包都会保存在这里，但是刷完之后它会自动删除刚刚刷完的包，我们只需要在系统修复的时候把ROM里的文件拉出来保存起来就行了（前提是下载进度要跑完），这样下次要再刷的时候直接把文件给拖进去就行了~</p>
+<p>四、后记</p>
+<p>对，如果你是EVA-AL00，回官点击完系统修复之后发现，开不了机，卡第二屏咋办？</p>
+<p>没关系，请再点击系统修复，等待p9进入5%的升级界面。注意！请立马关闭华为手机助手，强制结束它的进程，然后用降级到540的系统方法重新刷一遍，这样可以保证回官。</p>
+<p>注意，如果你的EVA-AL00被华为手机助手识别为EVA-AL0，那么请不要理会它，使用EVA-AL00的降级包进行刷机。</p>
+]]></content:encoded>
+      <enclosure url="https://cdn.jsdelivr.net/gh/Superdeeep/photo/p9usbcom.jpg" type="image/jpeg"/>
     </item>
     <item>
       <title>奇奇怪怪的小知识</title>
