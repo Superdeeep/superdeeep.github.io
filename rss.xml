@@ -6,8 +6,8 @@
     <link>https://superdeeep.github.io/</link>
     <description>嗨呀嗨呀，这里是我的小站</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 10 Aug 2022 08:27:09 GMT</pubDate>
-    <lastBuildDate>Wed, 10 Aug 2022 08:27:09 GMT</lastBuildDate>
+    <pubDate>Mon, 03 Oct 2022 12:03:14 GMT</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2022 12:03:14 GMT</lastBuildDate>
     <generator>@mr-hope/vuepress-plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -24,7 +24,7 @@
 <h2 id="最近活动"> 最近活动</h2>
 <p>本站全新上线，使用了新主题，迁移以及修正了以前的文章。</p>
 <p>增加了更多功能</p>
-<p>评论区目前测试可用~~</p>
+<p>评论区目前测试可用</p>
 ]]></content:encoded>
     </item>
     <item>
@@ -496,7 +496,7 @@ Allowsxs
 <div><pre><code>rem 路径:
 <span>cd</span> C:/Program Files <span>(</span>x86<span>)</span>/Microsoft/Edge/Application/84.0.522.69/Installer 
 rem 执行卸载命令 <span>:</span>
-setup.exe --uninstall --system-level --verbose-logging --force-uninstall 
+setup.exe <span>--uninstall</span> --system-level --verbose-logging --force-uninstall 
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></details>
 <details><summary>添加UAC白名单</summary>
@@ -1349,9 +1349,9 @@ DISM.exe /Online /Set-ReservedStorageState /State:Disabled
 <p>因为速度快，嗯(～￣▽￣)～ 就是这样~</p>
 <p>命令如下：</p>
 <div><pre><code><span>#临时：</span>
-<span>npm</span> --registry https://registry.npm.taobao.org 
+<span>npm</span> <span>--registry</span> https://registry.npm.taobao.org 
 <span>#永久:</span>
-<span>npm</span> config <span>set</span> registry https://registry.npm.taobao.org -g
+<span>npm</span> config <span>set</span> registry https://registry.npm.taobao.org <span>-g</span>
 <span>#验证配置是否成功:</span>
 <span>npm</span> config get registry
 </code></pre>
@@ -1386,8 +1386,8 @@ DISM.exe /Online /Set-ReservedStorageState /State:Disabled
 <h3 id="后记"> 后记：</h3>
 <details><summary>安装Vuepress一条龙~</summary>
 <div><pre><code><span>npm</span> config <span>set</span> registry https://registry.npm.taobao.org
-<span>npm</span> <span>install</span> -g <span>yarn</span>
-<span>yarn</span> config <span>set</span> registry https://registry.npm.taobao.org -g
+<span>npm</span> <span>install</span> <span>-g</span> <span>yarn</span>
+<span>yarn</span> config <span>set</span> registry https://registry.npm.taobao.org <span>-g</span>
 <span>yarn</span> <span>add</span> vuepress
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p>在package.json中添加脚本:</p>
@@ -1458,7 +1458,7 @@ DISM.exe /Online /Set-ReservedStorageState /State:Disabled
 <p>依赖：</p>
 <div><pre><code><span>yarn</span> <span>add</span> busuanzi.pure.js
 </code></pre>
-<div><span>1</span><br></div></div><div><pre><code><span>npm</span> <span>install</span> busuanzi.pure.js --save
+<div><span>1</span><br></div></div><div><pre><code><span>npm</span> <span>install</span> busuanzi.pure.js <span>--save</span>
 </code></pre>
 <div><span>1</span><br></div></div><p>在 docs/.vuepress/config.js 下的 head 中添加：</p>
 <div><pre><code><span>[</span><span>'meta'</span><span>,</span> <span>{</span> <span>name</span><span>:</span> <span>'referrer'</span><span>,</span> <span>content</span><span>:</span> <span>'no-referrer-when-downgrade'</span> <span>}</span><span>]</span><span>,</span>
@@ -2329,9 +2329,9 @@ module<span>.</span>exports <span>=</span> <span>{</span>
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><h2 id="安装vuepress-plugin-element-ui"> 安装vuepress-plugin-element-ui</h2>
 <p>命令如下:</p>
-<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-element-ui -D
+<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-element-ui <span>-D</span>
 </code></pre>
-<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-element-ui -D
+<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-element-ui <span>-D</span>
 </code></pre>
 <div><span>1</span><br></div></div><p>:::</p>
 <p>在config.js中配置</p>
@@ -2347,15 +2347,15 @@ module<span>.</span>exports <span>=</span> <span>{</span>
 <p>惊不惊喜意不意外😛</p>
 <p>别慌,element都需要一个依赖,安装好项目就可以跑起来了~</p>
 <p>命令如下:</p>
-<div><pre><code><span>yarn</span> <span>add</span> async-validator@1.11.5 -D
+<div><pre><code><span>yarn</span> <span>add</span> async-validator@1.11.5 <span>-D</span>
 </code></pre>
-<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i async-validator@1.11.5 -D
+<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i async-validator@1.11.5 <span>-D</span>
 </code></pre>
 <div><span>1</span><br></div></div><h2 id="vuepress-plugin-one-click-copy-代码块一键复制"> vuepress-plugin-one-click-copy | 代码块一键复制</h2>
-<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-one-click-copy -D
+<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-one-click-copy <span>-D</span>
 
 </code></pre>
-<div><span>1</span><br><span>2</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-one-click-copy -D
+<div><span>1</span><br><span>2</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-one-click-copy <span>-D</span>
 </code></pre>
 <div><span>1</span><br></div></div><ul>
 <li>注意这里有个奇奇怪怪的问题</li>
@@ -2369,9 +2369,9 @@ module<span>.</span>exports <span>=</span> <span>{</span>
     <span>]</span>,
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br></div></div><h2 id="vuepress-plugin-mathjax-数学公式"> vuepress-plugin-mathjax | 数学公式</h2>
-<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-mathjax -D
+<div><pre><code><span>yarn</span> <span>add</span> vuepress-plugin-mathjax <span>-D</span>
 </code></pre>
-<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-mathjax -D
+<div><span>1</span><br></div></div><div><pre><code><span>npm</span> i vuepress-plugin-mathjax <span>-D</span>
 </code></pre>
 <div><span>1</span><br></div></div><p>安装上它你就可以愉快的用latex写公式啦!</p>
 ]]></content:encoded>
@@ -2522,9 +2522,9 @@ ssh-add ~/.ssh/publish_rsa
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br></div></div></details>
 <details><summary>自动提交脚本</summary>
-<div><pre><code><span>git</span> <span>add</span> -A
-<span>git</span> commit -m <span>'deploy'</span>
-<span>git</span> push -f git@second.github.com:XXXXXX/XXXXX.github.io.git main
+<div><pre><code><span>git</span> <span>add</span> <span>-A</span>
+<span>git</span> commit <span>-m</span> <span>'deploy'</span>
+<span>git</span> push <span>-f</span> git@second.github.com:XXXXXX/XXXXX.github.io.git main
 <span>cd</span> –
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div></details>
@@ -2534,7 +2534,7 @@ ssh-add ~/.ssh/publish_rsa
 
 <span>git</span> branch --set-upstream-to<span>=</span>code/master master
 
-<span>git</span> branch -M master
+<span>git</span> branch <span>-M</span> master
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div>]]></content:encoded>
     </item>
@@ -2546,11 +2546,11 @@ ssh-add ~/.ssh/publish_rsa
       <pubDate>Tue, 01 Jan 1901 00:00:00 GMT</pubDate>
       <content:encoded><![CDATA[<h1 id="python-pip更新错误"> python pip更新错误</h1>
 <p>输入</p>
-<div><pre><code>python -m pip <span>install</span> –upgrade pip
+<div><pre><code>python <span>-m</span> pip <span>install</span> –upgrade pip
 </code></pre>
 <div><span>1</span><br></div></div><p>如果还报错</p>
 <p>输入命令：</p>
-<div><pre><code>python -m pip <span>install</span> -U pip
+<div><pre><code>python <span>-m</span> pip <span>install</span> <span>-U</span> pip
 </code></pre>
 <div><span>1</span><br></div></div>]]></content:encoded>
     </item>
@@ -2640,14 +2640,14 @@ deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
 <div><pre><code><span>apt-get</span> clean
 <span>apt-get</span> autoclean
 <span>sudo</span> <span>apt-get</span> autoremove
-dpkg -l <span>|</span><span>grep</span> ^rc<span>|</span><span>awk</span> <span>'{print $2}'</span> <span>|</span><span>sudo</span> <span>xargs</span> dpkg -P <span>#此命令会强力清理残留配置符号都是英文， 命令较长建议直接复制， 不要输入， 以免输错， 造成误删。其实也没必要清理它</span>
+dpkg <span>-l</span> <span>|</span><span>grep</span> ^rc<span>|</span><span>awk</span> <span>'{print $2}'</span> <span>|</span><span>sudo</span> <span>xargs</span> dpkg <span>-P</span> <span>#此命令会强力清理残留配置符号都是英文， 命令较长建议直接复制， 不要输入， 以免输错， 造成误删。其实也没必要清理它</span>
 <span>apt-get</span> remove <span>[</span>package<span>]</span>
-<span>apt-get</span> remove --purge <span># ------(package 删除包，包括删除配置文件等) </span>
-<span>apt-get</span> autoremove --purge <span># ----(package 删除包及其依赖的软件包+配置文件等</span>
+<span>apt-get</span> remove <span>--purge</span> <span># ------(package 删除包，包括删除配置文件等) </span>
+<span>apt-get</span> autoremove <span>--purge</span> <span># ----(package 删除包及其依赖的软件包+配置文件等</span>
 </code></pre>
 <div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br></div></div><p>使用dpkg卸载</p>
-<div><pre><code>dpkg -r     <span>#移除一个已安装的包。</span>
-dpkg -P    <span>#完全清除一个已安装的包。和 remove 不同的是，remove 只是删掉数据和可执行文件，purge 另外还删除所有的配制文件。</span>
+<div><pre><code>dpkg <span>-r</span>     <span>#移除一个已安装的包。</span>
+dpkg <span>-P</span>    <span>#完全清除一个已安装的包。和 remove 不同的是，remove 只是删掉数据和可执行文件，purge 另外还删除所有的配制文件。</span>
 </code></pre>
 <div><span>1</span><br><span>2</span><br></div></div><h2 id="安装yersinia"> 安装yersinia</h2>
 <p><code>apt-get install yersinia</code></p>
@@ -2675,9 +2675,9 @@ dpkg -P    <span>#完全清除一个已安装的包。和 remove 不同的是，
 <p><code>apt-get install libreoffice-l10n-zh-cn libreoffice-help-zh-cn</code></p>
 <p><code>apt-get remove --purge libreoffice*</code></p>
 <h2 id="安装typora"> 安装Typora</h2>
-<div><pre><code><span>wget</span> -qO - https://typora.io/linux/public-key.asc <span>|</span> <span>sudo</span> apt-key <span>add</span> -
+<div><pre><code><span>wget</span> <span>-qO</span> - https://typora.io/linux/public-key.asc <span>|</span> <span>sudo</span> apt-key <span>add</span> -
 
-<span>echo</span> -e <span>"<span title="\n">\n</span>deb https://typora.io/linux ./"</span> <span>|</span> <span>sudo</span> <span>tee</span> -a /etc/apt/sources.list
+<span>echo</span> <span>-e</span> <span>"<span title="\n">\n</span>deb https://typora.io/linux ./"</span> <span>|</span> <span>sudo</span> <span>tee</span> <span>-a</span> /etc/apt/sources.list
 
 <span>sudo</span> <span>apt-get</span> update
 
