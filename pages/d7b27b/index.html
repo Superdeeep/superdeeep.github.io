@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MFC - 添加 Tab Control 控件 | Superdeep</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <noscript><meta http-equiv="refresh" content="0; url=https://vuepress.vuejs.org/404.html"><style>.theme-vdoing-content { display:none }</noscript>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3129839_xft6cqs5gc.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3077305_s3avioxi2ok.css">
+    <link rel="icon" href="/img/head.ico">
+    <meta name="description" content="">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.74110775.css" as="style"><link rel="preload" href="/assets/js/app.d8658793.js" as="script"><link rel="preload" href="/assets/js/2.155b9707.js" as="script"><link rel="preload" href="/assets/js/31.2b9998a7.js" as="script"><link rel="prefetch" href="/assets/js/10.af263c85.js"><link rel="prefetch" href="/assets/js/11.6409a497.js"><link rel="prefetch" href="/assets/js/12.0c44c92d.js"><link rel="prefetch" href="/assets/js/13.17c9898e.js"><link rel="prefetch" href="/assets/js/14.1c24f293.js"><link rel="prefetch" href="/assets/js/15.a44d7c7e.js"><link rel="prefetch" href="/assets/js/16.5af4e7d2.js"><link rel="prefetch" href="/assets/js/17.dd4085c6.js"><link rel="prefetch" href="/assets/js/18.48efca6a.js"><link rel="prefetch" href="/assets/js/19.6d2ae2e4.js"><link rel="prefetch" href="/assets/js/20.f1bae5f2.js"><link rel="prefetch" href="/assets/js/21.5dd92235.js"><link rel="prefetch" href="/assets/js/22.000d0514.js"><link rel="prefetch" href="/assets/js/23.62f7eb7c.js"><link rel="prefetch" href="/assets/js/24.fdcdde1a.js"><link rel="prefetch" href="/assets/js/25.c29c5f6a.js"><link rel="prefetch" href="/assets/js/26.d010c2e1.js"><link rel="prefetch" href="/assets/js/27.38573111.js"><link rel="prefetch" href="/assets/js/28.8f70299f.js"><link rel="prefetch" href="/assets/js/29.5d9b34aa.js"><link rel="prefetch" href="/assets/js/3.731e5355.js"><link rel="prefetch" href="/assets/js/30.ad9bd1a2.js"><link rel="prefetch" href="/assets/js/32.fefa1346.js"><link rel="prefetch" href="/assets/js/33.47d5f7c0.js"><link rel="prefetch" href="/assets/js/34.75f2c033.js"><link rel="prefetch" href="/assets/js/35.7bd644c4.js"><link rel="prefetch" href="/assets/js/36.63f07b66.js"><link rel="prefetch" href="/assets/js/37.b238c819.js"><link rel="prefetch" href="/assets/js/38.eb55568d.js"><link rel="prefetch" href="/assets/js/39.25024a99.js"><link rel="prefetch" href="/assets/js/4.8e4a5016.js"><link rel="prefetch" href="/assets/js/40.e4c849ad.js"><link rel="prefetch" href="/assets/js/41.22d58f9f.js"><link rel="prefetch" href="/assets/js/42.324cc264.js"><link rel="prefetch" href="/assets/js/43.70451437.js"><link rel="prefetch" href="/assets/js/44.2f577810.js"><link rel="prefetch" href="/assets/js/45.d9bbbc31.js"><link rel="prefetch" href="/assets/js/46.3c8d6648.js"><link rel="prefetch" href="/assets/js/47.17c76a12.js"><link rel="prefetch" href="/assets/js/48.08a804df.js"><link rel="prefetch" href="/assets/js/49.13fa221a.js"><link rel="prefetch" href="/assets/js/5.18de6e88.js"><link rel="prefetch" href="/assets/js/50.ee96cdfc.js"><link rel="prefetch" href="/assets/js/51.39b1c97b.js"><link rel="prefetch" href="/assets/js/52.2f3c0d53.js"><link rel="prefetch" href="/assets/js/53.628cd6d9.js"><link rel="prefetch" href="/assets/js/54.775062e2.js"><link rel="prefetch" href="/assets/js/55.b93aab51.js"><link rel="prefetch" href="/assets/js/56.ed88d127.js"><link rel="prefetch" href="/assets/js/57.27acffd2.js"><link rel="prefetch" href="/assets/js/6.ddf6c903.js"><link rel="prefetch" href="/assets/js/7.0bdbe382.js"><link rel="prefetch" href="/assets/js/8.032e664d.js"><link rel="prefetch" href="/assets/js/9.26b497f6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.74110775.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/top.png" alt="Superdeep" class="logo"> <span class="site-name can-hide">Superdeep</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/pages/acfadc/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/pages/a08e4d/" class="nav-link">趣闻</a></div><div class="nav-item"><a href="/pages/c85104/" class="nav-link">好物</a></div> <a href="https://github.com/Superdeeep/code" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/blogme.png"> <div class="blogger-info"><h3>Superdeep</h3> <span>(￣▽￣)</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/pages/acfadc/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/pages/a08e4d/" class="nav-link">趣闻</a></div><div class="nav-item"><a href="/pages/c85104/" class="nav-link">好物</a></div> <a href="https://github.com/Superdeeep/code" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>技术笔记</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Windows笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>git笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>python笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Linux笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>VScode笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>C语言笔记</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/234c7d/" class="sidebar-link">C 手记</a></li><li><a href="/pages/d7b27b/" aria-current="page" class="active sidebar-link">MFC - 添加 Tab Control 控件</a></li></ul></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>折腾</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/categories/?category=%E7%AC%94%E8%AE%B0%E5%92%8C%E6%8A%98%E8%85%BE" title="分类" data-v-06225672>笔记和折腾</a></li><li data-v-06225672><a href="/categories/?category=%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0" title="分类" data-v-06225672>技术笔记</a></li><li data-v-06225672><a href="/categories/?category=C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0" title="分类" data-v-06225672>C语言笔记</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>Superdeep</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2022-10-10</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><!----> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">MFC - 添加 Tab Control 控件<!----></h1> <!----> <div class="theme-vdoing-content content__default"><p>做个备忘，以防日后需要。</p> <p>目标：创建一个多标签页对话框，每个标签页的内容互相独立使用。</p> <p>首先呢，当然是在 Visual Studio 里创建一个新的项目啦</p> <p>然后选择MFC项目不用多说</p> <p>然后做出如下的选择：</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/CMFCcreate1.png" alt="CMFCcreate1"></p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/CMFCcreate2.png.png" alt="CMFCcreate2.png"></p> <p>来到项目当中先添加 Tab Control 控件。</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/tabcontroladd1.png" alt="tabcontroladd1"></p> <p>之后就是右键 Tab Control 控件添加变量，就是把变量和这个控件绑在一起。像下图一样选择就好。</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/tabcontroladd2.png" alt="tabcontroladd2"></p> <p>添加完毕，来到资源视图，添加我们的子窗体，选择插入就好。</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/tabcontroladd3.png" alt="tabcontroladd3"></p> <p>这里想弄几个窗体都可以，名字记得就好。</p> <p>然后窗体的属性需要这么选择</p> <ul><li>样式为 child</li> <li>边框为 none</li></ul> <p>属性选择完成后，给每个子窗体添加一个类，如下图选择就好</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/tabcontroladd4.png" alt="tabcontroladd4"></p> <p>然后你就有操作的对象了对吧，记住它的名字。</p> <p>然后再主窗体的窗体代码里写入类似这些的代码</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token comment">//#include &quot;子窗体头文件&quot;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;Dialog1.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;Dialog2.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;Dialog3.h&quot;</span></span>
+ 
+<span class="token comment">// 名称      随便起个名字</span>
+CDialog1 m_Dlg1<span class="token punctuation">;</span>
+CDialog2 m_Dlg2<span class="token punctuation">;</span>
+CDialog3 m_Dlg3<span class="token punctuation">;</span>
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/tabcontroladd5.png" alt="tabcontroladd5"></p> <p>然后切换标签代码，以及激活焦点代码如下</p> <div class="language-c extra-class"><pre class="language-c"><code>
+<span class="token comment">// MFCtsetDlg.cpp: 实现文件</span>
+<span class="token comment">//</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;pch.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;framework.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;MFCtset.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;MFCtsetDlg.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;afxdialogex.h&quot;</span></span>
+
+<span class="token comment">///////////////////////////////////////////////////////////////////////////////////</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;dlg1.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;dlg2.h&quot;</span></span>
+
+dlg1 m_Dlg1<span class="token punctuation">;</span>
+dlg2 m_Dlg2<span class="token punctuation">;</span>
+<span class="token comment">//注意这四行代码十分重要，没有他们，子窗体内的按钮不会相应操作，目前水平猜测是消息未传给子窗体。////</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">_DEBUG</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">new</span> <span class="token expression">DEBUG_NEW</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+
+<span class="token comment">// 用于应用程序“关于”菜单项的 CAboutDlg 对话框</span>
+
+class CAboutDlg <span class="token operator">:</span> public CDialogEx
+<span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+	<span class="token function">CAboutDlg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 对话框数据</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">AFX_DESIGN_TIME</span></span>
+	<span class="token keyword">enum</span> <span class="token punctuation">{</span> IDD <span class="token operator">=</span> IDD_ABOUTBOX <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+	protected<span class="token operator">:</span>
+	virtual <span class="token keyword">void</span> <span class="token function">DoDataExchange</span><span class="token punctuation">(</span>CDataExchange<span class="token operator">*</span> pDX<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// DDX/DDV 支持</span>
+
+<span class="token comment">// 实现</span>
+protected<span class="token operator">:</span>
+	<span class="token function">DECLARE_MESSAGE_MAP</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+CAboutDlg<span class="token operator">::</span><span class="token function">CAboutDlg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">CDialogEx</span><span class="token punctuation">(</span>IDD_ABOUTBOX<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> CAboutDlg<span class="token operator">::</span><span class="token function">DoDataExchange</span><span class="token punctuation">(</span>CDataExchange<span class="token operator">*</span> pDX<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	CDialogEx<span class="token operator">::</span><span class="token function">DoDataExchange</span><span class="token punctuation">(</span>pDX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">BEGIN_MESSAGE_MAP</span><span class="token punctuation">(</span>CAboutDlg<span class="token punctuation">,</span> CDialogEx<span class="token punctuation">)</span>
+<span class="token function">END_MESSAGE_MAP</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">// CMFCtsetDlg 对话框</span>
+
+
+
+CMFCtsetDlg<span class="token operator">::</span><span class="token function">CMFCtsetDlg</span><span class="token punctuation">(</span>CWnd<span class="token operator">*</span> pParent <span class="token comment">/*=nullptr*/</span><span class="token punctuation">)</span>
+	<span class="token operator">:</span> <span class="token function">CDialogEx</span><span class="token punctuation">(</span>IDD_MFCTSET_DIALOG<span class="token punctuation">,</span> pParent<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	m_hIcon <span class="token operator">=</span> <span class="token function">AfxGetApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">LoadIcon</span><span class="token punctuation">(</span>IDR_MAINFRAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> CMFCtsetDlg<span class="token operator">::</span><span class="token function">DoDataExchange</span><span class="token punctuation">(</span>CDataExchange<span class="token operator">*</span> pDX<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	CDialogEx<span class="token operator">::</span><span class="token function">DoDataExchange</span><span class="token punctuation">(</span>pDX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">DDX_Control</span><span class="token punctuation">(</span>pDX<span class="token punctuation">,</span> IDC_TAB1<span class="token punctuation">,</span> cooooon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">BEGIN_MESSAGE_MAP</span><span class="token punctuation">(</span>CMFCtsetDlg<span class="token punctuation">,</span> CDialogEx<span class="token punctuation">)</span>
+	<span class="token function">ON_WM_SYSCOMMAND</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">ON_WM_PAINT</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">ON_WM_QUERYDRAGICON</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">ON_NOTIFY</span><span class="token punctuation">(</span>TCN_SELCHANGE<span class="token punctuation">,</span> IDC_TAB1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>CMFCtsetDlg<span class="token operator">::</span>OnTcnSelchangeTab1<span class="token punctuation">)</span>
+<span class="token function">END_MESSAGE_MAP</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">// CMFCtsetDlg 消息处理程序</span>
+
+BOOL CMFCtsetDlg<span class="token operator">::</span><span class="token function">OnInitDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	CDialogEx<span class="token operator">::</span><span class="token function">OnInitDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// 将“关于...”菜单项添加到系统菜单中。</span>
+
+	<span class="token comment">// IDM_ABOUTBOX 必须在系统命令范围内。</span>
+	<span class="token function">ASSERT</span><span class="token punctuation">(</span><span class="token punctuation">(</span>IDM_ABOUTBOX <span class="token operator">&amp;</span> <span class="token number">0xFFF0</span><span class="token punctuation">)</span> <span class="token operator">==</span> IDM_ABOUTBOX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">ASSERT</span><span class="token punctuation">(</span>IDM_ABOUTBOX <span class="token operator">&lt;</span> <span class="token number">0xF000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	CMenu<span class="token operator">*</span> pSysMenu <span class="token operator">=</span> <span class="token function">GetSystemMenu</span><span class="token punctuation">(</span>FALSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>pSysMenu <span class="token operator">!=</span> nullptr<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		BOOL bNameValid<span class="token punctuation">;</span>
+		CString strAboutMenu<span class="token punctuation">;</span>
+		bNameValid <span class="token operator">=</span> strAboutMenu<span class="token punctuation">.</span><span class="token function">LoadString</span><span class="token punctuation">(</span>IDS_ABOUTBOX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">ASSERT</span><span class="token punctuation">(</span>bNameValid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>strAboutMenu<span class="token punctuation">.</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			pSysMenu<span class="token operator">-&gt;</span><span class="token function">AppendMenu</span><span class="token punctuation">(</span>MF_SEPARATOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			pSysMenu<span class="token operator">-&gt;</span><span class="token function">AppendMenu</span><span class="token punctuation">(</span>MF_STRING<span class="token punctuation">,</span> IDM_ABOUTBOX<span class="token punctuation">,</span> strAboutMenu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动</span>
+	<span class="token comment">//  执行此操作</span>
+	<span class="token function">SetIcon</span><span class="token punctuation">(</span>m_hIcon<span class="token punctuation">,</span> TRUE<span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">// 设置大图标</span>
+	<span class="token function">SetIcon</span><span class="token punctuation">(</span>m_hIcon<span class="token punctuation">,</span> FALSE<span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// 设置小图标</span>
+
+	<span class="token comment">// TODO: 在此添加额外的初始化代码</span>
+	cooooon<span class="token punctuation">.</span><span class="token function">InsertItem</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">_T</span><span class="token punctuation">(</span><span class="token string">&quot;第一页&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cooooon<span class="token punctuation">.</span><span class="token function">InsertItem</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token function">_T</span><span class="token punctuation">(</span><span class="token string">&quot;第二页&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//修改分页名称	</span>
+
+	<span class="token comment">//******将子窗口嵌到主窗口中，并且修改下大小******//</span>
+	m_Dlg1<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span>IDD_DIALOG1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>cooooon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	m_Dlg2<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span>IDD_DIALOG2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>cooooon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	CRect rc<span class="token punctuation">;</span>
+	cooooon<span class="token punctuation">.</span><span class="token function">GetClientRect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>rc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	rc<span class="token punctuation">.</span>top <span class="token operator">+=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+	m_Dlg1<span class="token punctuation">.</span><span class="token function">MoveWindow</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>rc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	m_Dlg2<span class="token punctuation">.</span><span class="token function">MoveWindow</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>rc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">//******设置打开主窗口时优先显示这个子窗口****//</span>
+	m_Dlg1<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_SHOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cooooon<span class="token punctuation">.</span><span class="token function">SetCurFocus</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	m_Dlg2<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_HIDE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> TRUE<span class="token punctuation">;</span>  <span class="token comment">// 除非将焦点设置到控件，否则返回 TRUE</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> CMFCtsetDlg<span class="token operator">::</span><span class="token function">OnSysCommand</span><span class="token punctuation">(</span>UINT nID<span class="token punctuation">,</span> LPARAM lParam<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>nID <span class="token operator">&amp;</span> <span class="token number">0xFFF0</span><span class="token punctuation">)</span> <span class="token operator">==</span> IDM_ABOUTBOX<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		CAboutDlg dlgAbout<span class="token punctuation">;</span>
+		dlgAbout<span class="token punctuation">.</span><span class="token function">DoModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		CDialogEx<span class="token operator">::</span><span class="token function">OnSysCommand</span><span class="token punctuation">(</span>nID<span class="token punctuation">,</span> lParam<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 如果向对话框添加最小化按钮，则需要下面的代码</span>
+<span class="token comment">//  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，</span>
+<span class="token comment">//  这将由框架自动完成。</span>
+
+<span class="token keyword">void</span> CMFCtsetDlg<span class="token operator">::</span><span class="token function">OnPaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsIconic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		CPaintDC <span class="token function">dc</span><span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 用于绘制的设备上下文</span>
+
+		<span class="token function">SendMessage</span><span class="token punctuation">(</span>WM_ICONERASEBKGND<span class="token punctuation">,</span> reinterpret_cast<span class="token operator">&lt;</span>WPARAM<span class="token operator">&gt;</span><span class="token punctuation">(</span>dc<span class="token punctuation">.</span><span class="token function">GetSafeHdc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 使图标在工作区矩形中居中</span>
+		<span class="token keyword">int</span> cxIcon <span class="token operator">=</span> <span class="token function">GetSystemMetrics</span><span class="token punctuation">(</span>SM_CXICON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> cyIcon <span class="token operator">=</span> <span class="token function">GetSystemMetrics</span><span class="token punctuation">(</span>SM_CYICON<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		CRect rect<span class="token punctuation">;</span>
+		<span class="token function">GetClientRect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>rect<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token punctuation">(</span>rect<span class="token punctuation">.</span><span class="token function">Width</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> cxIcon <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token punctuation">(</span>rect<span class="token punctuation">.</span><span class="token function">Height</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> cyIcon <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 绘制图标</span>
+		dc<span class="token punctuation">.</span><span class="token function">DrawIcon</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> m_hIcon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		CDialogEx<span class="token operator">::</span><span class="token function">OnPaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//当用户拖动最小化窗口时系统调用此函数取得光标</span>
+<span class="token comment">//显示。</span>
+HCURSOR CMFCtsetDlg<span class="token operator">::</span><span class="token function">OnQueryDragIcon</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span> static_cast<span class="token operator">&lt;</span>HCURSOR<span class="token operator">&gt;</span><span class="token punctuation">(</span>m_hIcon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+
+<span class="token keyword">void</span> CMFCtsetDlg<span class="token operator">::</span><span class="token function">OnTcnSelchangeTab1</span><span class="token punctuation">(</span>NMHDR<span class="token operator">*</span> pNMHDR<span class="token punctuation">,</span> LRESULT<span class="token operator">*</span> pResult<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// TODO: 在此添加控件通知处理程序代码</span>
+	CRect rc<span class="token punctuation">;</span>
+	cooooon<span class="token punctuation">.</span><span class="token function">GetClientRect</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>rc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">switch</span> <span class="token punctuation">(</span>cooooon<span class="token punctuation">.</span><span class="token function">GetCurSel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+		m_Dlg1<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_SHOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		m_Dlg2<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_HIDE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		m_Dlg1<span class="token punctuation">.</span><span class="token function">SetFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+		m_Dlg1<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_HIDE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		m_Dlg2<span class="token punctuation">.</span><span class="token function">ShowWindow</span><span class="token punctuation">(</span>SW_SHOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		m_Dlg2<span class="token punctuation">.</span><span class="token function">SetFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token operator">:</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">// TODO: 在此添加控件通知处理程序代码</span>
+	<span class="token operator">*</span>pResult <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>附件：</p> <p>Visual Studio 2022中创建示例项目</p> <p><a href="https://cdn.jsdelivr.net/gh/Superdeeep/photo/MFCtset.7z" target="_blank" rel="noopener noreferrer">https://cdn.jsdelivr.net/gh/Superdeeep/photo/MFCtset.7z<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Superdeeep/code/edit/master/docs/03.笔记和折腾/02.技术笔记/07.C语言笔记/02.MFC笔记.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/234c7d/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">C 手记</div></a> <a href="/pages/555b1e/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">更换华为P9电池</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/234c7d/" class="prev">C 手记</a></span> <span class="next"><a href="/pages/555b1e/">更换华为P9电池</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/25585b/"><div>
+            Windows Terminal 笔记
+            <!----></div></a> <span class="date">10-09</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/9f2a15/"><div>
+            Windows速查手册
+            <!----></div></a> <span class="date">10-06</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/209d8d/"><div>
+            Vercel+Onedrive=一个假的网盘！
+            <!----></div></a> <span class="date">10-05</span></dt></dl> <dl><dd></dd> <dt><a href="/archives" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:schoolmicrosoft90@163.com" title="发我邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/Superdeeep/superdeeep.github.io" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/song?id=1856233056" title="音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2020-2022
+    <span>| 友链❤：<a href="https://www.imnie.com/">Nie</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><!----><canvas id="vuepress-canvas-cursor"></canvas><div></div><div></div></div></div>
+    <script src="/assets/js/app.d8658793.js" defer></script><script src="/assets/js/2.155b9707.js" defer></script><script src="/assets/js/31.2b9998a7.js" defer></script>
+  </body>
+</html>
