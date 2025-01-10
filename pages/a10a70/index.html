@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在Sing-box上使用WireGuard | Superdeep</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css">
+    <noscript><meta http-equiv="refresh" content="0; url=https://vuepress.vuejs.org/404.html"><style>.theme-vdoing-content { display:none }</noscript>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/Superdeeep/photo@main/headmemini.ico">
+    <meta name="description" content="">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.1e1b9f74.css" as="style"><link rel="preload" href="/assets/js/app.4a2ef896.js" as="script"><link rel="preload" href="/assets/js/4.760ad646.js" as="script"><link rel="preload" href="/assets/js/1.34a2b6f1.js" as="script"><link rel="preload" href="/assets/js/3.73079eb9.js" as="script"><link rel="preload" href="/assets/js/99.c93ef93d.js" as="script"><link rel="prefetch" href="/assets/js/10.ccca144c.js"><link rel="prefetch" href="/assets/js/100.2a0cb01e.js"><link rel="prefetch" href="/assets/js/101.ae79190f.js"><link rel="prefetch" href="/assets/js/102.63aa8941.js"><link rel="prefetch" href="/assets/js/103.301498df.js"><link rel="prefetch" href="/assets/js/104.508ed625.js"><link rel="prefetch" href="/assets/js/105.de0f71e0.js"><link rel="prefetch" href="/assets/js/106.5f5e18e8.js"><link rel="prefetch" href="/assets/js/107.11d09ab3.js"><link rel="prefetch" href="/assets/js/108.f012162c.js"><link rel="prefetch" href="/assets/js/109.d5ebc789.js"><link rel="prefetch" href="/assets/js/11.60a8a7d3.js"><link rel="prefetch" href="/assets/js/110.1fbb1ce2.js"><link rel="prefetch" href="/assets/js/111.009f5b26.js"><link rel="prefetch" href="/assets/js/12.baa3883f.js"><link rel="prefetch" href="/assets/js/13.3833c5a7.js"><link rel="prefetch" href="/assets/js/14.28f33f22.js"><link rel="prefetch" href="/assets/js/15.f59a4d1d.js"><link rel="prefetch" href="/assets/js/16.23db80bc.js"><link rel="prefetch" href="/assets/js/17.9774ad7e.js"><link rel="prefetch" href="/assets/js/18.5b94b3cf.js"><link rel="prefetch" href="/assets/js/19.1401c76c.js"><link rel="prefetch" href="/assets/js/2.3da1766e.js"><link rel="prefetch" href="/assets/js/20.b8596d55.js"><link rel="prefetch" href="/assets/js/21.e89e342f.js"><link rel="prefetch" href="/assets/js/22.3c194a03.js"><link rel="prefetch" href="/assets/js/23.cd819330.js"><link rel="prefetch" href="/assets/js/24.83d85d83.js"><link rel="prefetch" href="/assets/js/25.a9674873.js"><link rel="prefetch" href="/assets/js/26.094c1ab1.js"><link rel="prefetch" href="/assets/js/27.ad1684b1.js"><link rel="prefetch" href="/assets/js/28.35b2474b.js"><link rel="prefetch" href="/assets/js/29.0b7f83fd.js"><link rel="prefetch" href="/assets/js/30.1b42cdbb.js"><link rel="prefetch" href="/assets/js/31.0f91ee21.js"><link rel="prefetch" href="/assets/js/32.88e1f837.js"><link rel="prefetch" href="/assets/js/33.88059cd5.js"><link rel="prefetch" href="/assets/js/34.69566978.js"><link rel="prefetch" href="/assets/js/35.f1b4ba98.js"><link rel="prefetch" href="/assets/js/36.98284957.js"><link rel="prefetch" href="/assets/js/37.1954a009.js"><link rel="prefetch" href="/assets/js/38.7438df78.js"><link rel="prefetch" href="/assets/js/39.76db7346.js"><link rel="prefetch" href="/assets/js/40.86143c67.js"><link rel="prefetch" href="/assets/js/41.98b2f096.js"><link rel="prefetch" href="/assets/js/42.fdc44d13.js"><link rel="prefetch" href="/assets/js/43.b5d47a49.js"><link rel="prefetch" href="/assets/js/44.c98725dc.js"><link rel="prefetch" href="/assets/js/45.abf96dda.js"><link rel="prefetch" href="/assets/js/46.d8dd0448.js"><link rel="prefetch" href="/assets/js/47.e3f82792.js"><link rel="prefetch" href="/assets/js/48.e207b30b.js"><link rel="prefetch" href="/assets/js/49.a0c5c05a.js"><link rel="prefetch" href="/assets/js/5.9800d749.js"><link rel="prefetch" href="/assets/js/50.143f52e6.js"><link rel="prefetch" href="/assets/js/51.e6142a7b.js"><link rel="prefetch" href="/assets/js/52.5d07bcbf.js"><link rel="prefetch" href="/assets/js/53.bd70c822.js"><link rel="prefetch" href="/assets/js/54.99b43e6d.js"><link rel="prefetch" href="/assets/js/55.da201506.js"><link rel="prefetch" href="/assets/js/56.78bf8c7d.js"><link rel="prefetch" href="/assets/js/57.298aa7f0.js"><link rel="prefetch" href="/assets/js/58.2ddd8b3a.js"><link rel="prefetch" href="/assets/js/59.b5268ccb.js"><link rel="prefetch" href="/assets/js/6.43242577.js"><link rel="prefetch" href="/assets/js/60.8f70e950.js"><link rel="prefetch" href="/assets/js/61.122b6e31.js"><link rel="prefetch" href="/assets/js/62.cec19b64.js"><link rel="prefetch" href="/assets/js/63.82c00a39.js"><link rel="prefetch" href="/assets/js/64.448a1aee.js"><link rel="prefetch" href="/assets/js/65.fab8d135.js"><link rel="prefetch" href="/assets/js/66.5c99c15a.js"><link rel="prefetch" href="/assets/js/67.29363e12.js"><link rel="prefetch" href="/assets/js/68.47102142.js"><link rel="prefetch" href="/assets/js/69.09e9d0c9.js"><link rel="prefetch" href="/assets/js/7.db9f77ac.js"><link rel="prefetch" href="/assets/js/70.87c3f181.js"><link rel="prefetch" href="/assets/js/71.6d087df5.js"><link rel="prefetch" href="/assets/js/72.55665ce3.js"><link rel="prefetch" href="/assets/js/73.e850b074.js"><link rel="prefetch" href="/assets/js/74.2f44f32e.js"><link rel="prefetch" href="/assets/js/75.3b80a1bb.js"><link rel="prefetch" href="/assets/js/76.dfd06a8e.js"><link rel="prefetch" href="/assets/js/77.c054d26a.js"><link rel="prefetch" href="/assets/js/78.1122a520.js"><link rel="prefetch" href="/assets/js/79.a3b52e35.js"><link rel="prefetch" href="/assets/js/80.87cc5dcd.js"><link rel="prefetch" href="/assets/js/81.374484ea.js"><link rel="prefetch" href="/assets/js/82.6329391c.js"><link rel="prefetch" href="/assets/js/83.6e2ac587.js"><link rel="prefetch" href="/assets/js/84.5a98c585.js"><link rel="prefetch" href="/assets/js/85.05fd07cb.js"><link rel="prefetch" href="/assets/js/86.5f28ba6b.js"><link rel="prefetch" href="/assets/js/87.8d48653f.js"><link rel="prefetch" href="/assets/js/88.bb5ccf3d.js"><link rel="prefetch" href="/assets/js/89.7ec38dd3.js"><link rel="prefetch" href="/assets/js/90.40c729e3.js"><link rel="prefetch" href="/assets/js/91.361e7dec.js"><link rel="prefetch" href="/assets/js/92.a52bd73b.js"><link rel="prefetch" href="/assets/js/93.df5ae450.js"><link rel="prefetch" href="/assets/js/94.79afc01f.js"><link rel="prefetch" href="/assets/js/95.cff75138.js"><link rel="prefetch" href="/assets/js/96.e9758b57.js"><link rel="prefetch" href="/assets/js/97.fd7957f6.js"><link rel="prefetch" href="/assets/js/98.76fb7164.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.1d5e679f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1e1b9f74.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo/topme.png" alt="Superdeep" class="logo"> <span class="site-name can-hide">Superdeep</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/pages/acfadc/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/pages/a08e4d/" class="nav-link">趣闻</a></div><div class="nav-item"><a href="/pages/c85104/" class="nav-link">好物</a></div> <a href="https://github.com/Superdeeep/code" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo@main/melogomini.png"> <div class="blogger-info"><h3>Superdeep</h3> <span>(￣▽￣)</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/pages/acfadc/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/pages/a08e4d/" class="nav-link">趣闻</a></div><div class="nav-item"><a href="/pages/c85104/" class="nav-link">好物</a></div> <a href="https://github.com/Superdeeep/code" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>技术笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>折腾</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/555b1e/" class="sidebar-link">更换华为P9电池</a></li><li><a href="/pages/47d586/" class="sidebar-link">小米r1d路由器折腾笔记</a></li><li><a href="/pages/4f12a1/" class="sidebar-link">获取中兴F412光猫超级管理密码</a></li><li><a href="/pages/cba9ff/" class="sidebar-link">ipad mini1复活笔记</a></li><li><a href="/pages/3c68b2/" class="sidebar-link">安卓应用折腾</a></li><li><a href="/pages/72a5e1/" class="sidebar-link">华为主题修改与制作（轻雨）</a></li><li><a href="/pages/c56140/" class="sidebar-link">打造良好多终端写作体验</a></li><li><a href="/pages/e4eb87/" class="sidebar-link">360摄像头防护文件更改</a></li><li><a href="/pages/4caf72/" class="sidebar-link">清理脚本</a></li><li><a href="/pages/48a575/" class="sidebar-link">随身adb</a></li><li><a href="/pages/b26a85/" class="sidebar-link">Proxmark3</a></li><li><a href="/pages/2068d1/" class="sidebar-link">华为P9刷机指南</a></li><li><a href="/pages/600ec1/" class="sidebar-link">小米max折腾</a></li><li><a href="/pages/e4aeaa/" class="sidebar-link">华为光猫HS8546V5获取超级密码</a></li><li><a href="/pages/209d8d/" class="sidebar-link">Vercel+Onedrive=一个假的网盘！</a></li><li><a href="/pages/7ec0b7/" class="sidebar-link">iPhoneSE 2 插件折腾体验</a></li><li><a href="/03.笔记和折腾/05.折腾/18.termux&amp;codefa.html" class="sidebar-link">termux和code fa折腾笔记</a></li><li><a href="/pages/67f210/" class="sidebar-link">WireGuard异地组网踩坑日记</a></li><li><a href="/pages/909b24/" class="sidebar-link">修复IOS越狱dpkg被中断错误</a></li><li><a href="/pages/a10a70/" aria-current="page" class="active sidebar-link">在Sing-box上使用WireGuard</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#预备知识" class="sidebar-link">预备知识</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#需求" class="sidebar-link">需求：</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#要达到的效果" class="sidebar-link">要达到的效果</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#目前环境" class="sidebar-link">目前环境</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#模拟的网络布局" class="sidebar-link">模拟的网络布局</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#开始战斗了⚔️" class="sidebar-link">开始战斗了⚔️</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/a10a70/#服务器里的设置" class="sidebar-link">服务器里的设置：</a></li><li class="sidebar-sub-header level3"><a href="/pages/a10a70/#singbox配置" class="sidebar-link">SingBox配置：</a></li><li class="sidebar-sub-header level3"><a href="/pages/a10a70/#针对gui-for-singbox所做的设置" class="sidebar-link">针对GUI.for.SingBox所做的设置：</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#真是一场酣畅淋漓的战斗⚔️💦" class="sidebar-link">真是一场酣畅淋漓的战斗⚔️💦</a></li><li class="sidebar-sub-header level2"><a href="/pages/a10a70/#参考" class="sidebar-link">参考：</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/categories/?category=%E7%AC%94%E8%AE%B0%E5%92%8C%E6%8A%98%E8%85%BE" title="分类" data-v-06225672>笔记和折腾</a></li><li data-v-06225672><a href="/categories/?category=%E6%8A%98%E8%85%BE" title="分类" data-v-06225672>折腾</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>Superdeep</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2025-01-10</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">在Sing-box上使用WireGuard<!----></h1> <!----> <div class="theme-vdoing-content content__default"><p>这次折腾，是为了能够在singbox上使用WireGuard，为指定程序走WireGuard出站，实现远程异地组网。</p> <p>以前这比较好写配置文件，但是随着singbox1.11.0诞生，配置文件的很多字段发生了更改，基本上大改了，之前有的字段已经废弃了，于是本文记录踩坑过程(～o￣3￣)～</p> <h2 id="预备知识"><a href="#预备知识" class="header-anchor">#</a> 预备知识</h2> <p>假设你了解局域网，假设你知道手机热点大概工作原理，假设你基本了解网络拓扑，假设你基本了解云服务器，假设你基本了解Linux。</p> <h2 id="需求"><a href="#需求" class="header-anchor">#</a> 需求：</h2> <ul><li>可以随时随地远程连接WireGuard局域网里的设备</li> <li>可以随时随地访问家里的局域网里的设备</li> <li>拥有良好远程串流体验</li></ul> <h2 id="要达到的效果"><a href="#要达到的效果" class="header-anchor">#</a> 要达到的效果</h2> <ul><li><p>家中任何一台电脑，运行SingBox，就可以通过这台机器接入WireGuard网络。</p> <p>实现出门在外随时随地连接到家里的设备，也可以与家里的设备串流。</p></li></ul> <h2 id="目前环境"><a href="#目前环境" class="header-anchor">#</a> 目前环境</h2> <p>设备：<br>
+ECS服务器：Ubuntu 24.04.1 LTS<br>
+PC：Windows 11 安装了 GUI.for.SingBox<br>
+平板：HUAWEI Matepad Pro 11 冤种2022款 安装了WireGuard客户端<br>
+手机：HUAWEI P30 Pro 安装了WireGuard客户端<br></p> <h2 id="模拟的网络布局"><a href="#模拟的网络布局" class="header-anchor">#</a> 模拟的网络布局</h2> <p>这里用Cisco Packet Tracer连几根线意思一下，示意图。</p> <p><img src="https://cdn.jsdelivr.net/gh/Superdeeep/photo@main/cisco.png" alt="cisco"></p> <table><thead><tr><th>家中网络</th> <th>WireGuard网络</th> <th>远程网络</th></tr></thead> <tbody><tr><td>192.168.6.0/24</td> <td>10.1.0.0/24</td> <td>叽叽咕咕我不知道是啥捏</td></tr></tbody></table> <h2 id="开始战斗了⚔️"><a href="#开始战斗了⚔️" class="header-anchor">#</a> 开始战斗了⚔️</h2> <h3 id="服务器里的设置"><a href="#服务器里的设置" class="header-anchor">#</a> 服务器里的设置：</h3> <p>首先你要有一台公网IP的云服务器。</p> <p>我选择的是一年99元阿里云ECS，不需要域名，省去备案的麻烦。</p> <p>安装WireGuard和ufw</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> wireguard ufw
+ufw allow <span class="token number">22</span>/tcp
+ufw allow <span class="token number">22</span>/udp
+ufw allow <span class="token number">51820</span>/tcp
+ufw allow <span class="token number">51820</span>/udp
+ufw <span class="token builtin class-name">enable</span>
+<span class="token function">sysctl</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">net.ipv4.ip_forward</span><span class="token operator">=</span><span class="token number">1</span>
+</code></pre></div><p>生成密钥对：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> /etc/wireguard
+wg genkey <span class="token operator">|</span> <span class="token function">tee</span> gw-privatekey <span class="token operator">|</span> wg pubkey <span class="token operator">&gt;</span> gw-publickey
+wg genkey <span class="token operator">|</span> <span class="token function">tee</span> mypc-privatekey <span class="token operator">|</span> wg pubkey <span class="token operator">&gt;</span> mypc-publickey
+wg genkey <span class="token operator">|</span> <span class="token function">tee</span> matepad-privatekey <span class="token operator">|</span> wg pubkey <span class="token operator">&gt;</span> matepad-publickey
+</code></pre></div><p>生成云服务器上的配置：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> wg0.conf <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+[Interface]
+ListenPort = 51820 # 客户端连过来填写的端口，安全组的tcp和udp都要放行
+Address = 10.1.0.1/24  #wg之前通信组网的内网ip和段
+PrivateKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> gw-privatekey<span class="token variable">)</span></span>   # 使用 shell 读取gateway的私钥到这里
+
+PostUp = iptables -I FORWARD -s 10.1.0.0/24 -i wg0 -d 10.1.0.0/24 -j ACCEPT
+PostUp = iptables -I FORWARD -s 10.1.0.0/24 -i wg0 -d 192.168.6.0/24 -j ACCEPT
+PostUp = iptables -I FORWARD -s 192.168.6.0/24 -i wg0 -d 10.1.0.0/24 -j ACCEPT
+
+PostDown = iptables -D FORWARD -s 10.1.0.0/24 -i wg0 -d 10.1.0.0/24 -j ACCEPT
+PostDown = iptables -D FORWARD -s 10.1.0.0/24 -i wg0 -d 192.168.6.0/24 -j ACCEPT
+PostDown = iptables -D FORWARD -s 192.168.6.0/24 -i wg0 -d 10.1.0.0/24 -j ACCEPT
+
+# mypc
+[Peer]
+PublicKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> pc-publickey<span class="token variable">)</span></span>
+AllowedIPs = 10.1.0.2/32,192.168.6.0/24
+
+# matepad
+[Peer]
+PublicKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> home-pc-publickey<span class="token variable">)</span></span>
+AllowedIPs = 10.1.0.3/32
+
+EOF</span>
+</code></pre></div><p>家中电脑的配置：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> mypc.conf <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+[Interface]
+PrivateKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> mypc-privatekey<span class="token variable">)</span></span>
+Address = 10.1.0.2/24 #wg之前通信组网的内网ip和段，主机位每个得不一样
+
+[Peer]
+PublicKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> gw-publickey<span class="token variable">)</span></span>  # gateway的公钥
+AllowedIPs = 10.1.0.0/24, 192.168.6.0/24
+Endpoint = <span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> ip.sb<span class="token variable">)</span></span>:51820 #gateway 公网ip和端口
+PersistentKeepalive = 30 # 心跳时间
+EOF</span>
+</code></pre></div><p>平板的配置：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> matepad.conf <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+[Interface]
+PrivateKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> matepad-privatekey<span class="token variable">)</span></span>
+Address = 10.1.0.3/24 #wg之前通信组网的内网ip和段，主机位每个得不一样
+
+[Peer]
+PublicKey = <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> gw-publickey<span class="token variable">)</span></span>   # gateway的公钥
+AllowedIPs = 10.1.0.0/24
+Endpoint = <span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> ip.sb<span class="token variable">)</span></span>:51820  # gateway 公网ip和端口
+PersistentKeepalive = 10 # 心跳时间
+EOF</span>
+</code></pre></div><p>在云服务器上启动WireGuard服务（￣︶￣）</p> <div class="language-bash extra-class"><pre class="language-bash"><code>wg-quick up wg0 
+<span class="token comment"># WireGuard会默认读取 /etc/wireguard/$name.conf 作为启动的配置文件</span>
+<span class="token comment"># 若要手动指定配置文件启动WireGuard： wg-quick up /etc/wireguard/wg0.conf</span>
+wg-quick down wg0
+</code></pre></div><p>如果要查看组网状态,输入 wg 回车即可</p> <p>WireGuard半自动搭建脚本：</p> <h3 id="singbox配置"><a href="#singbox配置" class="header-anchor">#</a> SingBox配置：</h3> <p>我的老天爷，这玩意儿的配置折腾了好久好久，在SingBox里配置WireGuard总是出现问题。</p> <p>结果是需要为endpoints里加入detour字段，设置endpoints的出站，但他文档里没写哇。</p> <p>(╬▔皿▔)╯！！！！！！！</p> <p>因此需要在SingBox配置里加入endpoints的部分:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span> 
+  <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wireguard&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;tag&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg-ep&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;system&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg0&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;mtu&quot;</span><span class="token operator">:</span> <span class="token number">1408</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;detour&quot;</span><span class="token operator">:</span> <span class="token string">&quot;🎯 全球直连&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;10.1.0.2/32&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;private_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;私钥&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;peers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;47.119.127.104&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">51820</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;public_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;公钥&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;allowed_ips&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;10.1.0.0/24&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;192.168.6.0/24&quot;</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;persistent_keepalive_interval&quot;</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;reserved&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><p>整个配置的结构示意：</p> <p>注意哦⚠️，这里跟以前不一样了，WireGuard配置不需要写在outbounds里了，而是单独拿出来写在了endpoints里。</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;log&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dns&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;ntp&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">//在这里插入配置</span>
+  <span class="token property">&quot;inbounds&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;outbounds&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;route&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;experimental&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>针对几个远程串流的软件，路由规则还需要加上：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;process_name&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+	<span class="token string">&quot;parsecd.exe&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;pservice.exe&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;mstsc.exe&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;sunshine.exe&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> 
+ <span class="token property">&quot;outbound&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg-ep&quot;</span>
+</code></pre></div><p>这是我不知道从哪里抄来，然后简单改改的，单个可以启动的SingBox配置文件：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;log&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;disabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;level&quot;</span><span class="token operator">:</span> <span class="token string">&quot;info&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dns&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;servers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;udp://223.6.6.6&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;inbounds&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tun&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;172.18.0.1/30&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;auto_route&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;route_address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;10.1.0.0/24&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;route_exclude_address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;47.119.127.104/32&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;stack&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gvisor&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wireguard&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;tag&quot;</span><span class="token operator">:</span> <span class="token string">&quot;out-proxy&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;system&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg0&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;mtu&quot;</span><span class="token operator">:</span> <span class="token number">1408</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;detour&quot;</span><span class="token operator">:</span> <span class="token string">&quot;out-direct&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;10.1.0.2/32&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;private_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;私钥&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;peers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;47.119.127.104&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">51820</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;public_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;公钥&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;allowed_ips&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;0.0.0.0/0&quot;</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;persistent_keepalive_interval&quot;</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;reserved&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;outbounds&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;direct&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;tag&quot;</span><span class="token operator">:</span> <span class="token string">&quot;out-direct&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;route&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;logical&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;mode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;and&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+         <span class="token property">&quot;process_name&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;parsecd.exe&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;pservice.exe&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;mstsc.exe&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;cmd.exe&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>            <span class="token property">&quot;ip_cidr&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token string">&quot;10.1.0.0/24&quot;</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;outbound&quot;</span><span class="token operator">:</span> <span class="token string">&quot;out-proxy&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token property">&quot;auto_detect_interface&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="针对gui-for-singbox所做的设置"><a href="#针对gui-for-singbox所做的设置" class="header-anchor">#</a> 针对GUI.for.SingBox所做的设置：</h3> <p>在配置里的【混入和脚本】所做的设置：</p> <p>混入设置：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span> 
+  <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wireguard&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;tag&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg-ep&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;system&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg0&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;mtu&quot;</span><span class="token operator">:</span> <span class="token number">1408</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;detour&quot;</span><span class="token operator">:</span> <span class="token string">&quot;🎯 全球直连&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;10.1.0.2/32&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;private_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;私钥&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;peers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;47.119.127.104&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">51820</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;public_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;公钥&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;allowed_ips&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;10.1.0.0/24&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;192.168.6.0/24&quot;</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;persistent_keepalive_interval&quot;</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;reserved&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><p>脚本操作：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token function-variable function">onGenerate</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span>inbounds<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">inbound</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>inbound<span class="token punctuation">.</span>route_address<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        inbound<span class="token punctuation">.</span>route_exclude_address <span class="token operator">=</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;47.119.127.104/32&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  config<span class="token punctuation">.</span>route<span class="token punctuation">.</span>rules<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+        <span class="token string-property property">&quot;process_name&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;parsecd.exe&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;pservice.exe&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;mstsc.exe&quot;</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;sunshine.exe&quot;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">//&quot;ip_cidr&quot;: [</span>
+          <span class="token comment">//&quot;10.1.0.0/24&quot;</span>
+        <span class="token comment">//],</span>
+    <span class="token string-property property">&quot;outbound&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wg-ep&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="真是一场酣畅淋漓的战斗⚔️💦"><a href="#真是一场酣畅淋漓的战斗⚔️💦" class="header-anchor">#</a> 真是一场酣畅淋漓的战斗⚔️💦</h2> <p>经过测试，如果需要访问家里局域网的设备，需要在云服务器配置里的&quot;allowed_ips&quot;，加上局域网的网络，同时在局域网里的设备（任意一台）的&quot;allowed_ips&quot;也要加上局域网的网络。也就说这台设备是是内网与外部网络的互访的桥梁。</p> <p>如果没有加入局域网的网络，Sunshine串流会失败，暂未找到具体的原因。其他远程访问方式正常（微软远程桌面，Todesk，Parsec）</p> <p>如果加入了局域网的网络，一切正常，Sunshine可以正常串流。</p> <blockquote><p>目前确定不是Windows防火墙的问题</p></blockquote> <blockquote><p>不是云服务防火墙的问题（80%确定）</p></blockquote> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考：</h2> <p><a href="https://zhangguanzhang.github.io/2020/08/05/wireguard-for-personal/#/centos7" target="_blank" rel="noopener noreferrer">https://zhangguanzhang.github.io/2020/08/05/wireguard-for-personal/#/centos7<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://nxw.name/2023/wireguard" target="_blank" rel="noopener noreferrer">https://nxw.name/2023/wireguard<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Superdeeep/code/edit/master/docs/03.笔记和折腾/05.折腾/21.WireGuard与SingBox.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/909b24/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">修复IOS越狱dpkg被中断错误</div></a> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/909b24/" class="prev">修复IOS越狱dpkg被中断错误</a></span> <!----></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/d73d83/"><div>
+            记一次.ASF的转换
+            <!----></div></a> <span class="date">11-17</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/163443/"><div>
+            记录重新部署SVC
+            <!----></div></a> <span class="date">11-09</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/44468c/"><div>
+            记录 wsl2 更新内核等等问题
+            <!----></div></a> <span class="date">11-05</span></dt></dl> <dl><dd></dd> <dt><a href="/archives" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:superdeeep@outlook.com" title="发我邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/Superdeeep/superdeeep.github.io" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/song?id=1856233056" title="音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2020-2025
+    <span>| 友链❤：<"">友链挂了TAT</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><!----><div></div><div></div></div></div>
+    <script src="/assets/js/app.4a2ef896.js" defer></script><script src="/assets/js/4.760ad646.js" defer></script><script src="/assets/js/1.34a2b6f1.js" defer></script><script src="/assets/js/3.73079eb9.js" defer></script><script src="/assets/js/99.c93ef93d.js" defer></script>
+  </body>
+</html>
